@@ -1,3 +1,7 @@
+'use strict';
+
+const path = require('path');
+
 module.exports = {
 
   devtool: 'inline-source-map',
@@ -7,6 +11,16 @@ module.exports = {
   },
 
   module: {
+
+		postLoaders: [
+        // instrument only testing sources with Istanbul
+        {
+            test: /\.js$/,
+            include: path.resolve('src/www/js/'),
+            loader: 'istanbul-instrumenter'
+        }
+    ],
+
     loaders: [
       {
         test: /\.ts$/,
@@ -26,5 +40,5 @@ module.exports = {
         loader: 'null'
       }
     ]
-  }
+  },
 }
