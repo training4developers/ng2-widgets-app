@@ -58,7 +58,7 @@ $ npm test
 
 The results of the unit tests and code coverage report will be displayed in the terminal window.
 
-To view the HTML version of the code coverage report, open the **index.html** in the **reports/coverage/<browser name & version>** folder with a web browser.
+To view the HTML version of the code coverage report, open the **index.html** in the **reports/coverage/browser-name** folder with a web browser.
 
 ## NPM Scripts Command Reference
 
