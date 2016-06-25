@@ -56,8 +56,8 @@ From a terminal, in the root project folder (where the **package.json** file exi
 
 - **npm start** - starts the web server
 - **npm test** - starts karma to run unit tests
-- **npm run clean** - remove the **dist** folder
-- **npm run typings** - install TypeScript type definitions as specified in the **typings.json** file
+- **npm run clean** - removes the **dist** folder
+- **npm run typings** - installs TypeScript type definitions as specified in the **typings.json** file
 - **npm run build** - removes the dist folder, builds and deploys the server app, and the web app
 - **npm run webpack** - runs webpack in watch mode so web app file changes are automatically processed, and deployed to the **dist/www** folder
 - **npm run webpack-once** - runs webpack once to process web app files, and deploys them to the **dist/www** folder

@@ -6,6 +6,7 @@ const commonConfig = require('./webpack.common.js');
 const helpers = require('./helpers');
 
 module.exports = webpackMerge(commonConfig, {
+
   devtool: 'cheap-module-eval-source-map',
 
   output: {
@@ -23,4 +24,5 @@ module.exports = webpackMerge(commonConfig, {
     historyApiFallback: true,
     stats: 'minimal'
   }
+	
 });

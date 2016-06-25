@@ -1,9 +1,12 @@
-var webpack = require('webpack');
-var HtmlWebpackPlugin = require('html-webpack-plugin');
-var ExtractTextPlugin = require('extract-text-webpack-plugin');
-var helpers = require('./helpers');
+'use strict';
+
+const webpack = require('webpack');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const helpers = require('./helpers');
 
 module.exports = {
+
   entry: {
     'polyfills': './src/www/js/polyfills.ts',
     'vendor': './src/www/js/vendor.ts',
@@ -28,25 +31,15 @@ module.exports = {
         test: /\.(png|jpe?g|gif|svg|woff|woff2|ttf|eot|ico)$/,
         loader: 'file?name=assets/[name].[hash].[ext]'
       },
-      // {
-      //   test: /\.css$/,
-      //   exclude: helpers.root('src', 'www', 'js', 'app'),
-      //   loader: ExtractTextPlugin.extract('style', 'css?sourceMap')
-      // },
-      // {
-      //   test: /\.css$/,
-      //   include: helpers.root('src', 'www', 'js', 'app'),
-      //   loader: 'raw'
-      // },
 			{
 			  test: /\.scss$/,
 				exclude: helpers.root('src', 'www', 'js', 'app'),
-			  loader: ExtractTextPlugin.extract("style","css!sass") // sass-loader not scss-loader
+			  loader: ExtractTextPlugin.extract("style","css!sass")
 			},
 			{
 			  test: /\.scss$/,
 			  include: helpers.root('src', 'www', 'js', 'app'),
-			  loaders: ['raw-loader', 'sass-loader'] // sass-loader not scss-loader
+			  loaders: ['raw-loader', 'sass-loader']
 			}
     ]
   },
@@ -60,4 +53,5 @@ module.exports = {
       template: 'src/www/index.html'
     })
   ]
+	
 };
