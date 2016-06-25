@@ -5,17 +5,8 @@ import fs = require('fs');
 import http = require('http');
 import express = require('express');
 
-import { Car } from './car';
-import { BaseDataAccess } from './base-data-access';
 import { Rest } from './rest';
-
-export class CarDataAccess extends BaseDataAccess<Car> { }
-
-var carData = new CarDataAccess('car');
-carData.insert(new Car('Ford', 'Fusion', 2015, 'red', 12000));
-carData.insert(new Car('Chevrolet', 'S10', 2015, 'red', 12000));
-carData.insert(new Car('Toyota', '4Runner', 2015, 'red', 12000));
-carData.insert(new Car('Toyota', '4Runner', 2015, 'red', 12000));
+import { widgetDataAccess } from './widget-data-access';
 
 export default function(config) {
 
@@ -30,7 +21,7 @@ export default function(config) {
 	  });
 	});
 
-	app.use('/api', Rest.getRouter(carData));
+	app.use('/api', Rest.getRouter(widgetDataAccess));
 	app.use('/assets', express.static(path.join(config.webServer.folder, '/assets')));
 	app.use('/app.css', express.static(path.join(config.webServer.folder, '/app.css')));
 	app.use('/app.js', express.static(path.join(config.webServer.folder, '/app.js')));

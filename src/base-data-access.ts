@@ -18,11 +18,13 @@ export class BaseDataAccess<T extends Model> implements DataAccess<T> {
 
 	insert(model: T): T {
 		if (!model.id) model.id = this.lastIndex++;
+		model.created = model.modified = new Date();
 		this.models.push(model);
 		return model;
 	}
 
 	replace(model: T): T {
+		model.modified = new Date();
 		this.delete(model.id);
 		return this.insert(model);
 	}
