@@ -2,7 +2,7 @@
 
 ## Overview
 
-This is a simple CRUD application demonstrating the essentials of Angular 2 including HTTP services, routing, forms, composing components and unit testing. The base project configuration is adapted from the [Angular 2 Webpack Stater project](https://angular.io/docs/ts/latest/guide/webpack.html).
+This is a simple CRUD (create, read, update & delete) application demonstrating the essentials of Angular 2 including HTTP services, routing, forms, composing components and unit testing. The base project configuration is adapted from the [Angular 2 Webpack Stater project](https://angular.io/docs/ts/latest/guide/webpack.html).
 
 ## Application Setup
 
@@ -35,6 +35,16 @@ $ npm run webpack
 ```
 
 Step 8. Open your favorite text editor (such as [Atom](https://atom.io/) or [Visual Studio Code](https://code.visualstudio.com)), and modify the files in the **src/www** folder. When file changes are saved, **webpack** will automatically transpile and bundle the application code and assets, and deploy it to the **dist** folder. To see the changes, reload your web browser.
+
+Visual Studio Code supports TypeScript out of the box. Atom requires the 	**atom-typescript** package to be installed. To install it from the menu bar, goto Packages -> Settings View -> Install Packages/Themes. Search for **atom-typescript**, then click **Install**. Sometimes Atom will not be able to download the package because of proxy settings. To resolve this run the following commands from a terminal window, replacing the localhost URL with your proxy URL setting:
+
+```bash
+$ apm config set proxy "http://localhost:8080"
+
+$ apm config set https_proxy "http://localhost:8080"
+
+$ apm config set strict-ssl false
+```
 
 ## Running Unit Tests
 
