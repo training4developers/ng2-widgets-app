@@ -20,7 +20,7 @@ Step 4. From the terminal, run the following command:
 $ npm i && npm start
 ```
 
-It could take a few minutes for this command to complete.
+It could take a few minutes for this command to complete. If you have connection issues due to a proxy server, please edit the **.npmrc** and **.typingsrc** files per the instructions in those files.
 
 Step 5. Open a web browser, and navigate to [http://localhost:3000](http://localhost:3000).  The Angular 2 web application should load and be usable.
 
