@@ -40,7 +40,7 @@ Step 8. Open your favorite text editor (such as [Atom](https://atom.io/) or [Vis
 
 ## NPM Scripts Command Reference
 
-From a terminal, in the root project folder (where package.json exists), the following commands can be executed to perform various project development tasks.
+From a terminal, in the root project folder (where the **package.json** file exists), the following commands can be executed to perform various project development tasks.
 
 - **npm start** - starts the web server
 - **npm test** - starts karma to run unit tests
