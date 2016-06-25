@@ -14,13 +14,13 @@ Step 3. Open a terminal window, change to the folder where you extracted the zip
 
 On Windows, the terminal is called "Node.js Command Prompt". This will command prompt will contain the proper paths for Node.js development. DO NOT RUN the Node.js program. Click the icon named "Node.js Command Prompt". For Mac users, the Mac terminal is all you need.
 
-Step 4. From the terminal, run the following commands:
+Step 4. From the terminal, run the following command:
 
 ```bash
-$ npm i
-
-$ npm start
+$ npm i && npm start
 ```
+
+It could take a few minutes for this command to complete.
 
 Step 5. Open a web browser, and navigate to [http://localhost:3000](http://localhost:3000).  The Angular 2 web application should load and be usable.
 

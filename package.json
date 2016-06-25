@@ -8,6 +8,7 @@
 		"postinstall": "typings install && npm run build",
 		"test": "karma start",
 		"clean": "rimraf dist",
+		"typings": "typings install",
 		"build": "npm run clean && npm run server && npm run webpack-once",
 		"webpack": "webpack --config webpack.config.js --watch",
 		"webpack-once": "webpack --config webpack.config.js",
