@@ -46,6 +46,8 @@ $ apm config set https_proxy "http://localhost:8080"
 $ apm config set strict-ssl false
 ```
 
+Restart Atom, then re-attempt to install the **atom-typescript** package again.
+
 ## Running Unit Tests
 
 ## NPM Scripts Command Reference
