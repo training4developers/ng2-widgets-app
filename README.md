@@ -37,3 +37,14 @@ $ npm run webpack
 Step 8. Open your favorite text editor (such as [Atom](https://atom.io/) or [Visual Studio Code](https://code.visualstudio.com)), and modify the files in the **src/www** folder. When file changes are saved, **webpack** will automatically transpile and bundle the application code and assets, and deploy it to the **dist** folder. To see the changes, reload your web browser.
 
 ## Running Unit Tests
+
+## NPM Scripts Command Reference
+
+- **npm start** - starts the web server
+- **npm test** - starts karma to run unit tests
+- **npm run clean** - remove the **dist** folder
+- **npm run typings** - install TypeScript type definitions as specified in the **typings.json** file
+- **npm run build** - removes the dist folder, builds and deploys the server app, and the web app
+- **npm run webpack** - runs webpack in watch mode so web app file changes are automatically processed, and deployed to the **dist/www** folder
+- **npm run webpack-once** - runs webpack once to process web app files, and deploys them to the **dist/www** folder
+- **npm run server** - builds the server application, and deploys it to the **dist** folder
