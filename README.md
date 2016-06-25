@@ -50,6 +50,16 @@ Restart Atom, then re-attempt to install the **atom-typescript** package again.
 
 ## Running Unit Tests
 
+From a terminal run the following command:
+
+```bash
+$ npm test
+```
+
+The results of the unit tests and code coverage report will be displayed in the terminal window.
+
+To view the HTML version of the code coverage report, open the **index.html** in the **reports/coverage/<browser name & version>** folder with a web browser.
+
 ## NPM Scripts Command Reference
 
 From a terminal, in the root project folder (where the **package.json** file exists), the following commands can be executed to perform various project development tasks.

@@ -50,8 +50,8 @@ module.exports = {
     }),
 
     new HtmlWebpackPlugin({
-      template: 'src/www/index.html'
+      template: './src/www/index.html'
     })
   ]
-	
+
 };

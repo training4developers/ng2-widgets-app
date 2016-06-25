@@ -1,16 +1,32 @@
 {
 	"compileOnSave": false,
+	"buildOnSave": false,
 	"compilerOptions": {
 		"target": "es5",
 		"module": "commonjs",
 		"moduleResolution": "node",
-		"inlineSourceMap": true,
 		"emitDecoratorMetadata": true,
 		"experimentalDecorators": true,
+		"noImplicitAny": false,
 		"removeComments": false,
-		"noImplicitAny": false
+		"noEmitHelpers": false,
+		"sourceMap": true,
+		"inlineSourceMap": false
 	},
 	"exclude": [
 		"node_modules"
-	]
+	],
+	"filesGlob": [
+		"./src/www/js/**/*.ts",
+		"./typings/index.d.ts",
+		"!./node_modules/**",
+		"!./config/**"
+	],
+	"awesomeTypescriptLoaderOptions": {
+		"forkChecker": true,
+		"useWebpackText": true
+	},
+	"atom": {
+		"rewriteTsconfig": false
+	}
 }

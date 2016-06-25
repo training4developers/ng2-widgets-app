@@ -6,7 +6,6 @@
 // process.env.SAUCE_USERNAME = '';
 // process.env.SAUCE_ACCESS_KEY = '';
 
-const webpackConfig = require('./webpack.test');
 const customLaunchers = require('./custom-launchers');
 
 module.exports = function (config) {
@@ -30,28 +29,18 @@ module.exports = function (config) {
 		// list of files to exclude
     exclude: [],
 
-		//plugins: ['karma-remap-istanbul', 'karma-coverage'],
-
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
-      './karma-test-shim.js': [ 'webpack', 'sourcemap' ]
+      './karma-test-shim.js': [ 'coverage', 'webpack', 'sourcemap' ]
     },
 
-    webpack: webpackConfig,
-
-    // webpackMiddleware: {
-    //   stats: 'errors-only'
-    // },
-		//
-    // webpackServer: {
-    //   noInfo: true
-    // },
+    webpack: require('./webpack.test'),
 
 		// test results reporter to use
     // possible values: 'dots', 'progress'
     // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-    reporters: [ 'progress', 'junit', 'coverage', 'karma-remap-istanbul', 'saucelabs' ],
+    reporters: [ 'progress', 'junit', 'coverage', 'saucelabs' ],
 
 		junitReporter: {
 			outputDir: '../reports/junit',
@@ -62,22 +51,10 @@ module.exports = function (config) {
 			dir: '../reports/coverage',
 			reporters: [
         { type: 'text-summary' },
-        {
-					type: 'json',
-					subdir: '.',
-	      	file: 'coverage-final.json'
-				}
+        { type: 'json' },
+        { type: 'html' }
       ]
     },
-
-	  remapIstanbulReporter: {
-	    src: '../reports/coverage/coverage-final.json',
-	    reports: {
-	      html: 'coverage'
-	    },
-	    timeoutNotCreated: 1000,
-	    timeoutNoMoreFiles: 1000
-	  },
 
 		sauceLabs: {
       testName: 'Karma and Sauce Labs demo',

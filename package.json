@@ -10,8 +10,8 @@
     "clean": "rimraf dist",
     "typings": "typings install",
     "build": "npm run clean && npm run server && npm run webpack-once",
-    "webpack": "webpack --config webpack.config.js --watch",
-    "webpack-once": "webpack --config webpack.config.js",
+    "webpack": "webpack --config ./config/webpack.dev.js --watch",
+    "webpack-once": "webpack --config ./config/webpack.dev.js",
     "server": "tsc --sourceMap -t ES5 --outdir ./dist ./src/server.ts"
   },
   "repository": {
@@ -26,6 +26,7 @@
   },
   "homepage": "https://github.com/training4developers/ng2-widgets-app#readme",
   "devDependencies": {
+    "awesome-typescript-loader": "^1.1.1",
     "css-loader": "^0.23.1",
     "extract-text-webpack-plugin": "^1.0.1",
     "file-loader": "^0.9.0",
@@ -38,8 +39,8 @@
     "karma-jasmine": "^1.0.2",
     "karma-junit-reporter": "^1.0.0",
     "karma-phantomjs-launcher": "^1.0.1",
-    "karma-remap-istanbul": "^0.1.0",
     "karma-sauce-launcher": "^1.0.0",
+    "karma-source-map-support": "^1.1.0",
     "karma-sourcemap-loader": "^0.3.7",
     "karma-webpack": "^1.7.0",
     "node-sass": "^3.8.0",
@@ -48,7 +49,9 @@
     "raw-loader": "^0.5.1",
     "rimraf": "^2.5.2",
     "sass-loader": "^3.2.1",
+    "source-map-loader": "^0.1.5",
     "style-loader": "^0.13.1",
+    "ts-helpers": "^1.1.1",
     "ts-loader": "^0.8.2",
     "typescript": "^1.8.10",
     "typings": "^1.3.0",
@@ -70,11 +73,18 @@
     "bootstrap": "^3.3.6",
     "core-js": "^2.4.0",
     "express": "^4.14.0",
+    "lodash": "^4.13.1",
     "pluralize": "^3.0.0",
     "reflect-metadata": "^0.1.3",
     "rxjs": "^5.0.0-beta.9",
     "socket.io": "^1.4.8",
     "systemjs": "^0.19.31",
     "zone.js": "^0.6.12"
+  },
+  "webServer": {
+    "protocol": "http",
+    "host": "localhost",
+    "port": 3000,
+    "folder": "dist/www"
   }
 }
