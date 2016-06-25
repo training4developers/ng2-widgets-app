@@ -1,13 +1,17 @@
 {
 	"name": "ng2-widgets-app",
 	"version": "1.0.0",
-	"description": "",
-	"main": "webpack.config.js",
+	"description": "Demonstration web application using Angular 2",
+	"main": "index.js",
 	"scripts": {
-		"start": "tsc --sourceMap -t ES5 --outdir ./dist ./src/server.ts && node index",
-		"postinstall": "typings install",
+		"start": "node index",
+		"postinstall": "typings install && npm run build",
+		"test": "karma start",
+		"clean": "rimraf dist",
+		"build": "npm run clean && npm run server && npm run webpack-once",
 		"webpack": "webpack --config webpack.config.js --watch",
-		"webpack-once": "webpack --config webpack.config.js"
+		"webpack-once": "webpack --config webpack.config.js",
+		"server": "tsc --sourceMap -t ES5 --outdir ./dist ./src/server.ts"
 	},
 	"repository": {
 		"type": "git",
@@ -26,8 +30,15 @@
 		"file-loader": "^0.9.0",
 		"html-loader": "^0.4.3",
 		"html-webpack-plugin": "^2.21.0",
+		"jasmine-core": "^2.4.1",
+		"karma": "^1.0.0",
+		"karma-jasmine": "^1.0.2",
+		"karma-phantomjs-launcher": "^1.0.1",
+		"karma-sourcemap-loader": "^0.3.7",
+		"karma-webpack": "^1.7.0",
 		"node-sass": "^3.8.0",
 		"null-loader": "^0.1.1",
+		"phantomjs-prebuilt": "^2.1.7",
 		"raw-loader": "^0.5.1",
 		"rimraf": "^2.5.2",
 		"sass-loader": "^3.2.1",
@@ -36,7 +47,6 @@
 		"typescript": "^1.8.10",
 		"typings": "^1.3.0",
 		"webpack": "^1.13.1",
-		"webpack-dev-server": "^1.14.1",
 		"webpack-merge": "^0.14.0"
 	},
 	"dependencies": {

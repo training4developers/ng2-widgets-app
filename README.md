@@ -19,17 +19,21 @@ Step 4. From the terminal, run the following commands:
 ```bash
 $ npm i
 
-$ npm run webpack
-```
-
-Step 5. Open a new terminal window, change to the project folder.
-
-Step 6: From the terminal, run the following command:
-
-```bash
 $ npm start
 ```
 
-Step 7: Open a web browser, and navigate to [http://localhost:3000](http://localhost:3000).
+Step 5. Open a web browser, and navigate to [http://localhost:3000](http://localhost:3000).  The Angular 2 web application should load and be usable.
+
+**To Modify the Web Application**
+
+Step 6. Open a new terminal window, change to the project folder.
+
+Step 7. From the terminal, run the following command:
+
+```bash
+$ npm run webpack
+```
+
+Step 8. Open your favorite text editor (such as [https://atom.io/](Atom) or (https://code.visualstudio.com)[Visual Studio Code]), and modify the files in the **src/www** folder. When file changes are saved, **webpack** will automatically transpile and bundle the application code and assets, and deploy it to the **dist** folder. To see the changes, reload your web browser.
 
 ## Running Unit Tests
