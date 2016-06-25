@@ -62,3 +62,12 @@ From a terminal, in the root project folder (where the **package.json** file exi
 - **npm run webpack** - runs webpack in watch mode so web app file changes are automatically processed, and deployed to the **dist/www** folder
 - **npm run webpack-once** - runs webpack once to process web app files, and deploys them to the **dist/www** folder
 - **npm run server** - builds the server application, and deploys it to the **dist** folder
+
+## Useful Resources
+
+- [TypeScript Coding Guidelines](https://github.com/Microsoft/TypeScript/wiki/Coding-guidelines)
+- [Angular 2 Style Guide](https://angular.io/docs/ts/latest/guide/style-guide.html)
+- [Angular 2 Cheat Sheet](https://angular.io/docs/ts/latest/guide/cheatsheet.html)
+- [Angular 2 API](https://angular.io/docs/ts/latest/api/)
+- [Angular Quick Start Project](https://angular.io/docs/ts/latest/quickstart.html)
+- [Angular Webpack Project](https://angular.io/docs/ts/latest/guide/webpack.html)
