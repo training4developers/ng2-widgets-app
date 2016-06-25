@@ -1,65 +1,64 @@
 {
-  "name": "ng2-widgets-app",
-  "version": "1.0.0",
-  "description": "",
-  "main": "webpack.config.js",
-  "scripts": {
-    "start": "node index",
-    "postinstall": "typings install",
-    "server": "tsc --sourceMap -t ES5 --outdir ./dist ./src/server.ts",
-    "webpack": "webpack --config webpack.config.js --watch",
-    "webpack-once": "webpack --config webpack.config.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/training4developers/ng2-widgets-app.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/training4developers/ng2-widgets-app/issues"
-  },
-  "homepage": "https://github.com/training4developers/ng2-widgets-app#readme",
-  "devDependencies": {
-    "css-loader": "^0.23.1",
-    "extract-text-webpack-plugin": "^1.0.1",
-    "file-loader": "^0.9.0",
-    "html-loader": "^0.4.3",
-    "html-webpack-plugin": "^2.21.0",
-    "node-sass": "^3.8.0",
-    "null-loader": "^0.1.1",
-    "raw-loader": "^0.5.1",
-    "rimraf": "^2.5.2",
-    "sass-loader": "^3.2.1",
-    "style-loader": "^0.13.1",
-    "ts-loader": "^0.8.2",
-    "typescript": "^1.8.10",
-    "typings": "^1.3.0",
-    "webpack": "^1.13.1",
-    "webpack-dev-server": "^1.14.1",
-    "webpack-merge": "^0.14.0"
-  },
-  "dependencies": {
-    "@angular/common": "2.0.0-rc.3",
-    "@angular/compiler": "2.0.0-rc.3",
-    "@angular/core": "2.0.0-rc.3",
-    "@angular/forms": "^0.1.1",
-    "@angular/http": "2.0.0-rc.3",
-    "@angular/platform-browser": "2.0.0-rc.3",
-    "@angular/platform-browser-dynamic": "2.0.0-rc.3",
-    "@angular/router": "^3.0.0-alpha.7",
-    "@angular/upgrade": "2.0.0-rc.3",
-    "angular2-in-memory-web-api": "0.0.12",
-    "body-parser": "^1.15.2",
-    "bootstrap": "^3.3.6",
-    "core-js": "^2.4.0",
-    "express": "^4.14.0",
-    "pluralize": "^3.0.0",
-    "reflect-metadata": "^0.1.3",
-    "rxjs": "^5.0.0-beta.9",
-    "socket.io": "^1.4.8",
-    "systemjs": "^0.19.31",
-    "zone.js": "^0.6.12"
-  }
+	"name": "ng2-widgets-app",
+	"version": "1.0.0",
+	"description": "",
+	"main": "webpack.config.js",
+	"scripts": {
+		"start": "tsc --sourceMap -t ES5 --outdir ./dist ./src/server.ts && node index",
+		"postinstall": "typings install",
+		"webpack": "webpack --config webpack.config.js --watch",
+		"webpack-once": "webpack --config webpack.config.js"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/training4developers/ng2-widgets-app.git"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/training4developers/ng2-widgets-app/issues"
+	},
+	"homepage": "https://github.com/training4developers/ng2-widgets-app#readme",
+	"devDependencies": {
+		"css-loader": "^0.23.1",
+		"extract-text-webpack-plugin": "^1.0.1",
+		"file-loader": "^0.9.0",
+		"html-loader": "^0.4.3",
+		"html-webpack-plugin": "^2.21.0",
+		"node-sass": "^3.8.0",
+		"null-loader": "^0.1.1",
+		"raw-loader": "^0.5.1",
+		"rimraf": "^2.5.2",
+		"sass-loader": "^3.2.1",
+		"style-loader": "^0.13.1",
+		"ts-loader": "^0.8.2",
+		"typescript": "^1.8.10",
+		"typings": "^1.3.0",
+		"webpack": "^1.13.1",
+		"webpack-dev-server": "^1.14.1",
+		"webpack-merge": "^0.14.0"
+	},
+	"dependencies": {
+		"@angular/common": "2.0.0-rc.3",
+		"@angular/compiler": "2.0.0-rc.3",
+		"@angular/core": "2.0.0-rc.3",
+		"@angular/forms": "^0.1.1",
+		"@angular/http": "2.0.0-rc.3",
+		"@angular/platform-browser": "2.0.0-rc.3",
+		"@angular/platform-browser-dynamic": "2.0.0-rc.3",
+		"@angular/router": "^3.0.0-alpha.7",
+		"@angular/upgrade": "2.0.0-rc.3",
+		"angular2-in-memory-web-api": "0.0.12",
+		"body-parser": "^1.15.2",
+		"bootstrap": "^3.3.6",
+		"core-js": "^2.4.0",
+		"express": "^4.14.0",
+		"pluralize": "^3.0.0",
+		"reflect-metadata": "^0.1.3",
+		"rxjs": "^5.0.0-beta.9",
+		"socket.io": "^1.4.8",
+		"systemjs": "^0.19.31",
+		"zone.js": "^0.6.12"
+	}
 }
