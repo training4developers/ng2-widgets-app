@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+
 import '../../css/styles.scss';
 
 declare var require: any;
