@@ -20,7 +20,7 @@ module.exports = {
     loaders: [
       {
         test: /\.ts$/,
-        loader: 'ts?sourceMap',
+        loader: 'ts',
         exclude: [/\.(spec|e2e)\.ts$/]
       },
       {
@@ -39,12 +39,12 @@ module.exports = {
 			{
 			  test: /\.scss$/,
 				exclude: helpers.root('src', 'www', 'js', 'app'),
-        loaders: ['style','css','sass?sourceMap','postcss']
+        loaders: ['style','css','postcss','sass']
       },
 			{
 			  test: /\.scss$/,
 			  include: helpers.root('src', 'www', 'js', 'app'),
-			  loaders: ['raw','sass?sourceMap','postcss']
+			  loaders: ['raw','postcss','sass']
 			}
     ]
   },
