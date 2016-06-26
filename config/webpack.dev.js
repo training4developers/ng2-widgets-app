@@ -1,24 +1,18 @@
 'use strict';
 
-const webpackMerge = require('webpack-merge');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const commonConfig = require('./webpack.common.js');
-const helpers = require('./helpers');
 const config = require('../config');
 
-module.exports = webpackMerge(commonConfig, {
+module.exports = require('webpack-merge')(require('./webpack.common.js'), {
 
-  devtool: 'cheap-module-eval-source-map',
+  devtool: 'inline-source-map',
 
   output: {
-    path: helpers.root(config.webServer.folder),
+    path: require('./helpers').root(config.webServer.folder),
     publicPath: `${config.webServer.protocol}://${config.webServer.host}:${config.webServer.port}/`,
     filename: '[name].js',
     chunkFilename: '[id].chunk.js'
   },
 
-  plugins: [
-    new ExtractTextPlugin('[name].css')
-  ]
+  postcss: [ require('autoprefixer') ]
 
 });

@@ -7,6 +7,6 @@ declare var require: any;
 @Component({
   selector: 'widgets-app',
   template: require('./app.component.html'),
-  styles: [require('./app.component.scss')]
+  styles: [require('./app.component.scss')],
 })
 export class AppComponent { }

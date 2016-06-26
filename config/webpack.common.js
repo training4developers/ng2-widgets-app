@@ -2,7 +2,6 @@
 
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const helpers = require('./helpers');
 
 module.exports = {
@@ -14,18 +13,24 @@ module.exports = {
   },
 
   resolve: {
-    extensions: ['', '.js', '.ts']
+    extensions: ['', '.ts', '.js', '.json', '.css', '.scss', '.html']
   },
 
   module: {
     loaders: [
       {
         test: /\.ts$/,
-        loader: 'ts'
+        loader: 'ts?sourceMap',
+        exclude: [/\.(spec|e2e)\.ts$/]
+      },
+      {
+        test: /\.json$/,
+        loader: 'json'
       },
       {
         test: /\.html$/,
-        loader: 'html'
+        loader: 'html',
+        exclude: [ helpers.root('./src/www/index.html') ]
       },
       {
         test: /\.(png|jpe?g|gif|svg|woff|woff2|ttf|eot|ico)$/,
@@ -34,12 +39,12 @@ module.exports = {
 			{
 			  test: /\.scss$/,
 				exclude: helpers.root('src', 'www', 'js', 'app'),
-			  loader: ExtractTextPlugin.extract("style","css!sass")
-			},
+        loaders: ['style','css','sass?sourceMap','postcss']
+      },
 			{
 			  test: /\.scss$/,
 			  include: helpers.root('src', 'www', 'js', 'app'),
-			  loaders: ['raw-loader', 'sass-loader']
+			  loaders: ['raw','sass?sourceMap','postcss']
 			}
     ]
   },
