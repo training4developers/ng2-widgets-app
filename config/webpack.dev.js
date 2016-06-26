@@ -13,6 +13,8 @@ module.exports = require('webpack-merge')(require('./webpack.common.js'), {
     chunkFilename: '[id].chunk.js'
   },
 
-  postcss: [ require('autoprefixer') ]
+  postcss: [ require('autoprefixer') ],
+
+  resolveUrlLoader: { silent: true }
 
 });
