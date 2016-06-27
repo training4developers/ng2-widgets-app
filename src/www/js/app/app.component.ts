@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { App } from './models/app';
 import { PageHeaderComponent } from './shared/page-header/page-header.component';
 import { PageFooterComponent } from './shared/page-footer/page-footer.component';
+import { WidgetsViewer } from './widgets/widgets-viewer/widgets-viewer.component';
 
 import '../../css/styles.scss';
 
@@ -12,7 +13,7 @@ declare var require: any;
   selector: 'widgets-app',
   template: require('./app.component.html'),
   styles: [require('./app.component.scss')],
-  directives: [ PageHeaderComponent, PageFooterComponent ]
+  directives: [ PageHeaderComponent, PageFooterComponent, WidgetsViewer ]
 })
 export class AppComponent implements OnInit {
 
