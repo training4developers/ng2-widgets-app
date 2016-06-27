@@ -1,15 +1,33 @@
-import { it, inject, describe, beforeEachProviders, expect } from '@angular/core/testing';
+import { it, inject, describe, beforeEachProviders, expect, beforeEach } from '@angular/core/testing';
+import { TestComponentBuilder } from '@angular/compiler/testing';
+
 import { AppComponent } from './app.component';
 
 describe('App', () => {
 
-  beforeEachProviders(() => [
-    AppComponent
-  ]);
+  let _tcb: TestComponentBuilder;
 
-  it ('should work', inject([ AppComponent ], (app: AppComponent) => {
-    // Add real test here
-    expect(2).toBe(2);
-  }));
+  beforeEachProviders(() => [ TestComponentBuilder, AppComponent ]);
+
+  beforeEach(inject([ TestComponentBuilder ], (tcb: TestComponentBuilder) => _tcb = tcb))
+
+  it ('app initialization', (done) => {
+
+    _tcb.createAsync(AppComponent).then(fixture => {
+      
+      let appComponent = fixture.componentInstance;
+      let element = fixture.nativeElement;
+
+      fixture.detectChanges();
+
+      expect(appComponent.app.name).toBe('Widgets Manager');
+      expect(appComponent.app.creator).toBe('Training 4 Developers, Inc.');
+      expect(appComponent.app.copyrightYear).toBe((new Date()).getFullYear());
+
+      done();
+
+    }).catch(e => done.fail(e));
+
+  });
 
 });

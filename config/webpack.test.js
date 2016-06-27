@@ -32,7 +32,16 @@ module.exports = {
 			},
       { test: /\.html$/, loader: 'html' },
       { test: /\.(png|jpe?g|gif|svg|woff|woff2|ttf|eot|ico)$/, loader: 'null' },
-      { test: /\.scss$/, loader: 'null' }
+      {
+			  test: /\.scss$/,
+				exclude: helpers.root('src', 'www', 'js', 'app'),
+        loaders: ['style','css','postcss','sass']
+      },
+			{
+			  test: /\.scss$/,
+			  include: helpers.root('src', 'www', 'js', 'app'),
+			  loaders: ['raw','postcss','sass']
+			}
     ],
 
 		postLoaders: [{
