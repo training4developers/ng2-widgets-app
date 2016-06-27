@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ROUTER_DIRECTIVES } from '@angular/router';
 
 import { App } from './models/app';
 import { PageHeaderComponent } from './shared/page-header/page-header.component';
@@ -13,7 +14,7 @@ declare var require: any;
   selector: 'widgets-app',
   template: require('./app.component.html'),
   styles: [require('./app.component.scss')],
-  directives: [ PageHeaderComponent, PageFooterComponent, WidgetsViewer ]
+  directives: [ ROUTER_DIRECTIVES, PageHeaderComponent, PageFooterComponent, WidgetsViewer ]
 })
 export class AppComponent implements OnInit {
 
