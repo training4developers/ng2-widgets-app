@@ -6,15 +6,17 @@
 			<th>Color</th>
 			<th>Size</th>
 			<th>Quantity</th>
+			<th>Action</th>
 		</tr>
 	</thead>
 
 	<tbody>
 		<tr *ngFor='let widget of widgets'>
-			<th>{{widget.name}}</th>
-			<th>{{widget.color}}</th>
-			<th>{{widget.size}}</th>
-			<th>{{widget.quantity}}</th>
+			<td>{{widget.name}}</td>
+			<td>{{widget.color}}</td>
+			<td>{{widget.size}}</td>
+			<td>{{widget.quantity}}</td>
+			<td><button type="button" (click)="viewWidgetButton(widget.id)">View</button>
 		</tr>
 	</tbody>
 

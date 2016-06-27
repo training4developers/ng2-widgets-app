@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 import { Widget } from '../../../models/widget';
 
@@ -11,5 +11,12 @@ export class WidgetsTable {
 
 	@Input()
 	widgets: Widget[];
+
+	@Output()
+	viewWidget: EventEmitter<number> = new EventEmitter<number>();
+
+	viewWidgetButton(widgetId: number) {
+		this.viewWidget.emit(widgetId)
+	}
 
 }
