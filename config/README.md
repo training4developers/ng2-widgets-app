@@ -111,7 +111,8 @@ The command **npm test** is executed from the terminal to launch Karma. Karma re
 
 ### SASS
 
-
+- [SASS](http://sass-lang.com/)
+- [SASS Loader](https://github.com/jtangelder/sass-loader)
 
 ### Webpack
 
