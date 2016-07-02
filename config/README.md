@@ -18,13 +18,17 @@ Run **npm start** from a terminal, the web server configuration is loaded from *
 
 #### Widgets REST Endponts
 
-GET /api/widgets -> returns a JSON formatted array of widget objects
-POST /api/widgets -> the request body should contain a JSON formatted widget object,
+__Resource Collection URI__
+
+- GET /api/widgets -> returns a JSON formatted array of widget objects
+- POST /api/widgets -> the request body should contain a JSON formatted widget object,
 returns a JSON formatted widget object with the id, created and modified fields updated
 
-GET /api/widgets/<widget id> -> a JSON formatted widget object
-PUT /api/widgets/<widget id> -> the request body should contain a JSON formatted widget object, returns a JSON formatted widget objects with the modified field updated
-DELETE /api/widgets/<widget id> -> returns a JSON formatted widget object of the widget deleted
+__Resource Element URI__
+
+- GET /api/widgets/<widget id> -> a JSON formatted widget object
+- PUT /api/widgets/<widget id> -> the request body should contain a JSON formatted widget object, returns a JSON formatted widget objects with the modified field updated
+- DELETE /api/widgets/<widget id> -> returns a JSON formatted widget object of the widget deleted
 
 ## Development Configuration
 
