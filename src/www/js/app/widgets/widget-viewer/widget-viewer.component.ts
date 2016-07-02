@@ -22,11 +22,13 @@ export class WidgetViewerComponent implements OnInit {
 	) { }
 
 	ngOnInit() {
-
 		this.route.params.subscribe(params => {
 			this.widgetsData.get(parseInt(params['id'], 10)).subscribe(widget => this.widget = widget);
 		});
+	}
 
+	editWidget(widgetId: number) {
+		this.router.navigate(["/widget", widgetId, "/edit"]);
 	}
 
 	returnToList() {

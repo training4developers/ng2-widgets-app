@@ -30,11 +30,23 @@ export class WidgetEditorComponent implements OnInit {
 	}
 
 	saveWidget(widget: Widget) {
-		this.router.navigate(["/"]);
+
+		(widget.id
+			? this.widgetsData.update(widget)
+			: this.widgetsData.insert(widget))
+			.subscribe(widget => {
+				this.router.navigate(["/"]);
+			});
+		
 	}
 
 	deleteWidget(widget: Widget) {
-		this.router.navigate(["/"]);
+
+		if (confirm('Are you sure you want to delete this widget?')) {
+			this.widgetsData.delete(widget.id).subscribe(widget =>
+				this.router.navigate(["/"]));
+		}
+
 	}
 
 	cancelWidget(widget: Widget) {

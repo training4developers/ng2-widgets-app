@@ -44,6 +44,7 @@ export class WidgetFormComponent {
 	] 
 
 	saveWidgetButton(widget) {
+		
 		this.saveWidget.emit(widget);
 	}
 
