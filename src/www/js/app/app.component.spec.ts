@@ -1,33 +1,33 @@
-import { it, inject, describe, beforeEachProviders, expect, beforeEach } from '@angular/core/testing';
-import { TestComponentBuilder } from '@angular/compiler/testing';
+import {
+  it, inject, describe, expect, beforeEach,
+  addProviders, TestComponentBuilder, ComponentFixture
+} from '@angular/core/testing';
+import { provide } from '@angular/core';
+import { Router, RouterOutletMap } from '@angular/router';
 
 import { AppComponent } from './app.component';
 
+class MockRouter { createUrlTree() {} }
+
 describe('App', () => {
 
-  let _tcb: TestComponentBuilder;
+  beforeEach(() => addProviders([
+    TestComponentBuilder, AppComponent,
+    provide(Router, { useClass: MockRouter }),
+    RouterOutletMap
+  ]));
 
-  beforeEachProviders(() => [ TestComponentBuilder, AppComponent ]);
+  it ('app initialization', inject([ TestComponentBuilder ], (tcb: TestComponentBuilder) => {
 
-  beforeEach(inject([ TestComponentBuilder ], (tcb: TestComponentBuilder) => _tcb = tcb))
+    const fixture: ComponentFixture<AppComponent> = tcb.createSync(AppComponent);
+    const appComponent = fixture.componentInstance;
 
-  it ('app initialization', (done) => {
+    fixture.detectChanges();
 
-    _tcb.createAsync(AppComponent).then(fixture => {
-      
-      let appComponent = fixture.componentInstance;
-      let element = fixture.nativeElement;
+    expect(appComponent.app.name).toBe('Widgets Manager');
+    expect(appComponent.app.creator).toBe('Training 4 Developers, Inc.');
+    expect(appComponent.app.copyrightYear).toBe((new Date()).getFullYear());
 
-      fixture.detectChanges();
-
-      expect(appComponent.app.name).toBe('Widgets Manager');
-      expect(appComponent.app.creator).toBe('Training 4 Developers, Inc.');
-      expect(appComponent.app.copyrightYear).toBe((new Date()).getFullYear());
-
-      done();
-
-    }).catch(e => done.fail(e));
-
-  });
+  }));
 
 });

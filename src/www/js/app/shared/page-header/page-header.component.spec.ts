@@ -1,36 +1,27 @@
-import { it, describe, beforeEachProviders, expect, inject, beforeEach } from '@angular/core/testing';
-import { TestComponentBuilder } from '@angular/compiler/testing';
+import {
+	it, describe, beforeEach, expect, addProviders,
+	inject, TestComponentBuilder, ComponentFixture
+} from '@angular/core/testing';
 
 import { App } from '../../models/app';
 import { PageHeaderComponent } from './page-header.component';
 
 describe('Page Header', () => {
 
-	let _tcb: TestComponentBuilder;
+	beforeEach(() => addProviders([ TestComponentBuilder, PageHeaderComponent ]));
 
-	beforeEachProviders(() => [ TestComponentBuilder, PageHeaderComponent ]);
+	it('page header initialization', inject([ TestComponentBuilder ], (tcb: TestComponentBuilder) => {
 
-	beforeEach(inject([ TestComponentBuilder ], (tcb: TestComponentBuilder) => { 
-    _tcb = tcb
-  }));
+		const fixture: ComponentFixture<PageHeaderComponent> = tcb.createSync(PageHeaderComponent);
+		const pageHeaderComponent: PageHeaderComponent = fixture.componentInstance;
+		const element = fixture.nativeElement;
 
-	it('page header initialization', done => {
+		pageHeaderComponent.app = new App('test app','test owner', 2016);
 
-		_tcb.createAsync(PageHeaderComponent).then(fixture => {
+		fixture.detectChanges();
 
-			let pageHeaderComponent: PageHeaderComponent = fixture.componentInstance;
-			let element = fixture.nativeElement;
+		expect(element.querySelector('h1').innerText).toBe('test app');
 
-			pageHeaderComponent.app = new App('test app','test owner', 2016);
-
-			fixture.detectChanges();
-
-			expect(element.querySelector('h1').innerText).toBe('test app');
-
-			done();
-			
-		}).catch(e => done.fail(e));
-
-	});
+	}));
 
 });

@@ -1,34 +1,25 @@
-import { describe, it, expect, beforeEachProviders, beforeEach, inject } from '@angular/core/testing';
-import { TestComponentBuilder } from '@angular/compiler/testing';
+import {
+	describe, it, expect, beforeEach, addProviders, inject, ComponentFixture, TestComponentBuilder
+} from '@angular/core/testing';
 
 import { App } from '../../models/app';
 import { PageFooterComponent } from './page-footer.component';
 
 describe('Page Footer', () => {
 
-	let _tcb: TestComponentBuilder;
+	beforeEach(() => addProviders([ TestComponentBuilder, PageFooterComponent ]));
 
-	beforeEachProviders(() => [ TestComponentBuilder, PageFooterComponent ]);
+	it ('page footer initialization', inject([ TestComponentBuilder ], (tcb: TestComponentBuilder) => {
+	
+		const fixture = tcb.createSync(PageFooterComponent);
+		const pageFooterComponent = fixture.componentInstance;
+		const element = fixture.nativeElement;
 
-	beforeEach(inject([ TestComponentBuilder ], (tcb: TestComponentBuilder) => _tcb = tcb));
+		pageFooterComponent.app = new App('test app', 'test owner', 2015);
 
-	it ('page footer initialization', (done => {
+		fixture.detectChanges();
 
-		_tcb.createAsync(PageFooterComponent).then(fixture => {
-
-			let pageFooterComponent = fixture.componentInstance;
-			let element = fixture.nativeElement;
-
-			pageFooterComponent.app = new App('test app', 'test owner', 2015);
-
-			fixture.detectChanges();
-
-			expect(element.querySelector('small').innerText).toBe(`${String.fromCharCode(169)} 2015, test owner`);
-
-			done();
-
-		}).catch(e => done.fail(e));
-
+		expect(element.querySelector('small').innerText).toBe(`${String.fromCharCode(169)} 2015, test owner`);
 
 	}));
 

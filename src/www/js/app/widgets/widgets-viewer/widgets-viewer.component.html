@@ -1,1 +1,5 @@
-<widgets-table [widgets]="widgets" (viewWidget)="viewWidget($event)"></widgets-table>
+<widgets-table
+	[widgets]="widgets"
+	(viewWidget)="viewWidget($event)"
+	(editWidget)="editWidget($event)">
+</widgets-table>

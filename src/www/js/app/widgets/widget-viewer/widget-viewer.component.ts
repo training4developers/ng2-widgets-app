@@ -3,15 +3,15 @@ import { ActivatedRoute, Router } from '@angular/router';
 
 import { Widget } from '../../models/widget';
 import { Widgets } from '../../services/widgets.service';
-import { WidgetDetails } from '../shared/widget-details/widget-details.component';
+import { WidgetDetailsComponent } from '../shared/widget-details/widget-details.component';
 
 @Component({
 	template: require('./widget-viewer.component.html'),
 	styles: [require('./widget-viewer.component.scss')],
 	providers: [ Widgets ],
-	directives: [ WidgetDetails ]
+	directives: [ WidgetDetailsComponent ]
 })
-export class WidgetViewer implements OnInit {
+export class WidgetViewerComponent implements OnInit {
 
 	widget: Widget;
 
@@ -24,7 +24,7 @@ export class WidgetViewer implements OnInit {
 	ngOnInit() {
 
 		this.route.params.subscribe(params => {
-			this.widgetsData.get(parseInt(params['id'])).subscribe(widget => this.widget = widget);
+			this.widgetsData.get(parseInt(params['id'], 10)).subscribe(widget => this.widget = widget);
 		});
 
 	}

@@ -6,21 +6,21 @@
 		Description: {{widget?.description}}
 	</div>
 	<div>
-		Color: {{widget?.color}}
+		Color: {{widget?.color | capitalize}}
 	</div>
 	<div>
-		Size: {{widget?.size}}
+		Size: {{widget?.size | capitalize}}
 	</div>
 	<div>
-		Quantity: {{widget?.quantity}}
+		Quantity: {{widget?.quantity | number:'1.0-0'}}
 	</div>
 	<div>
-		Active: {{widget?.active}}
+		Active: {{widget?.active | active}}
 	</div>
 	<div>
-		Created: {{widget?.created}}
+		Created: {{widget?.created | date:'short'}}
 	</div>
 	<div>
-		Modified: {{widget?.modfied}}
+		Modified: {{widget?.modified | date:'short'}}
 	</div>
 </div>

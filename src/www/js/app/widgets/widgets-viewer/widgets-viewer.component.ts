@@ -3,15 +3,15 @@ import { Router } from '@angular/router';
 
 import { Widget } from '../../models/widget';
 import { Widgets } from '../../services/widgets.service';
-import { WidgetsTable } from '../shared/widgets-table/widgets-table.component';
+import { WidgetsTableComponent } from '../shared/widgets-table/widgets-table.component';
 
 @Component({
 	template: require('./widgets-viewer.component.html'),
 	styles: [require('./widgets-viewer.component.scss')],
 	providers: [ Widgets ],
-	directives: [ WidgetsTable ]
+	directives: [ WidgetsTableComponent ]
 })
-export class WidgetsViewer implements OnInit {
+export class WidgetsViewerComponent implements OnInit {
 
 	widgets: Widget[];
 
@@ -28,4 +28,7 @@ export class WidgetsViewer implements OnInit {
 		this.router.navigate(['/widget', widgetId]);
 	}
 
+	editWidget(widgetId) {
+		this.router.navigate(['/widget', widgetId, '/edit']);
+	}
 }
