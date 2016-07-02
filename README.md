@@ -83,7 +83,7 @@ From a terminal, in the root project folder (where the **package.json** file exi
 - **npm run webpack-once** - runs webpack once to process web app files, and deploys them to the **dist/www** folder
 - **npm run server** - builds the server application, and deploys it to the **dist** folder
 
-To learn more about the Angular 2/WebPack/TypeScript/Karma configuration, click [here]().
+To learn more about the Angular 2/WebPack/TypeScript/Karma configuration, click [here](https://github.com/training4developers/ng2-widgets-app/tree/master/config).
 
 ## Useful Resources
 
