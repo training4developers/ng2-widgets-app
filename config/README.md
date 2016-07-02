@@ -71,3 +71,47 @@ The following configuration information pertains to running the unit testing and
 ### Process Flow
 
 The command **npm test** is executed from the terminal to launch Karma. Karma reads the Karma configuration file which loads the **karma-test-shim.js** file.  Code coverage is added to the source code, and then Webpack packages the source code for testing. Then Karma launches the web browser instance to run the tests. Once the tests are complete, reports are generated including code coverage reports.
+
+## Useful Configuration Resources
+
+### Angular 2
+
+- [Angular 2 Quick Start Configuarion](https://angular.io/docs/ts/latest/quickstart.html)
+- [Angular 2 Webpack Configuration](https://angular.io/docs/ts/latest/guide/webpack.html)
+- [Angular 2 TypeScript Configuration](https://angular.io/docs/ts/latest/guide/typescript-configuration.html)
+
+### Bootstrap Loader
+
+- [Bootstrap Loader](https://www.npmjs.com/package/bootstrap-loader)
+
+### Atom Html Linter
+
+- [Html Hint](https://atom.io/packages/linter-htmlhint)
+
+### Karma
+
+- [Karma Configuration File](http://karma-runner.github.io/1.0/config/configuration-file.html)
+
+### NPM Configuation
+
+- [Config Command](https://docs.npmjs.com/misc/config)
+- [Configuration Options](https://docs.npmjs.com/files/npmrc)
+
+### TypeScript
+
+- [TypeScript Configuration](https://www.typescriptlang.org/docs/handbook/tsconfig-json.html)
+- [Typings for NPM Packages](https://www.typescriptlang.org/docs/handbook/typings-for-npm-packages.html)
+- [Compiler Options](https://www.typescriptlang.org/docs/handbook/compiler-options.html)
+- [Integrating with Build Tools](https://www.typescriptlang.org/docs/handbook/integrating-with-build-tools.html)
+
+### PostCSS
+
+- [PostCSS](https://github.com/postcss/postcss)
+- [Autoprefixer](https://github.com/postcss/autoprefixer)
+
+### SASS
+
+
+
+### Webpack
+

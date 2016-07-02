@@ -1,5 +1,8 @@
 'use strict';
 
+// for more details: http://karma-runner.github.io/1.0/config/configuration-file.html
+
+// load the browser configurations for executing the unit tests
 const customLaunchers = require('./custom-launchers');
 
 module.exports = function (config) {
@@ -25,10 +28,12 @@ module.exports = function (config) {
 
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
+    // coverage runs first, then web pack, then the source map generation
     preprocessors: {
       './karma-test-shim.js': [ 'coverage', 'webpack', 'sourcemap' ]
     },
 
+    // specifies the webpack configuration file for use by the webpack preprocessor above
     webpack: require('./webpack.test'),
 
 		// test results reporter to use
@@ -36,11 +41,14 @@ module.exports = function (config) {
     // available reporters: https://npmjs.org/browse/keyword/karma-reporter
     reporters: [ 'progress', 'junit', 'coverage' ],
 
+    // configuration for junit reporter, useful for Jenkins
 		junitReporter: {
 			outputDir: '../reports/junit',
 			outputFile: 'test-results.xml'
 		},
 
+    // configuation for coverage reporter
+    // output can be used by Jenkins or viewed in a web browser per the instructions in the project readme
 		coverageReporter: {
 			dir: '../reports/coverage',
 			reporters: [
@@ -50,6 +58,7 @@ module.exports = function (config) {
       ]
     },
 
+    // maximum start time for the web browser before trying to capture it
 		captureTimeout: 120000,
 
 
@@ -74,13 +83,14 @@ module.exports = function (config) {
     // // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
 		customLaunchers: customLaunchers,
 
-		browsers: Object.keys(customLaunchers),
+		// assign the configured browsers from custom launchers
+    browsers: Object.keys(customLaunchers),
 
-		phantomjsLauncher: {
+		// configuration for PhantomJS browser
+    phantomjsLauncher: {
 			// Have phantomjs exit if a ResourceError is encountered (useful if karma exits without killing phantom)
 			exitOnResourceError: true
 		},
-
 
     // Continuous Integration mode
     // if true, Karma captures browsers, runs the tests and exits
@@ -92,5 +102,6 @@ module.exports = function (config) {
     concurrency: Infinity
   };
 
+  // apply the configuration to Karma
   config.set(_config);
 };
