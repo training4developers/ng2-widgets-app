@@ -6,11 +6,17 @@ The following configuration files are used to configure the project.
 
 ### Configuration Files
 
-- /package.json
-- /config.js
-- /index.js
+- /package.json - Contains information about the project, including application and development dependencies. The command line scripts are defined here. The web server configuration is located at the end of the file. To change protocol, port number, domain and root folder, please edit these values in this file.
+- /config.js - Contains code to extract web server configuration from the package.json file.
+- /index.js - Used to start the web server. It loads the web server config from package.json, then passes the config to /src/server.ts to fire up the REST server.
 
 ### Process Flow
+
+Run **npm start** from a terminal, the web server configuration is loaded from **package.json**, and the Express-based web server is started. Based upon the default configuration, the web site can be loaded from http://localhost:3000, and the widgets REST service is available via http://localhost:3000/api/widgets.
+
+Widgets REST Endponts
+
+GET /api/widgets -> an array of widgets
 
 ## Development Configuration
 
