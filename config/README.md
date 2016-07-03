@@ -80,17 +80,25 @@ The command **npm test** is executed from the terminal to launch Karma. Karma re
 - [Angular 2 Webpack Configuration](https://angular.io/docs/ts/latest/guide/webpack.html)
 - [Angular 2 TypeScript Configuration](https://angular.io/docs/ts/latest/guide/typescript-configuration.html)
 
-### Bootstrap Loader
-
-- [Bootstrap Loader](https://www.npmjs.com/package/bootstrap-loader)
-
 ### Atom Html Linter
 
 - [Html Hint](https://atom.io/packages/linter-htmlhint)
 
+### Bootstrap Loader
+
+- [Bootstrap Loader](https://www.npmjs.com/package/bootstrap-loader)
+
 ### Karma
 
 - [Karma Configuration File](http://karma-runner.github.io/1.0/config/configuration-file.html)
+- [Karma Code Coverage Configuration](https://karma-runner.github.io/0.8/config/coverage.html)
+- [Karma Coverage](https://github.com/karma-runner/karma-coverage)
+- [JUnit Reporter](https://github.com/karma-runner/karma-junit-reporter)
+- [Jenkins JUnit Reporter Plugin](https://wiki.jenkins-ci.org/display/JENKINS/JUnit+Plugin)
+
+### Istanbul
+
+- [Istanbul](https://github.com/gotwarlost/istanbul)
 
 ### NPM Configuation
 
@@ -103,6 +111,7 @@ The command **npm test** is executed from the terminal to launch Karma. Karma re
 - [Typings for NPM Packages](https://www.typescriptlang.org/docs/handbook/typings-for-npm-packages.html)
 - [Compiler Options](https://www.typescriptlang.org/docs/handbook/compiler-options.html)
 - [Integrating with Build Tools](https://www.typescriptlang.org/docs/handbook/integrating-with-build-tools.html)
+- [TypeScript Webpack Loader](https://github.com/TypeStrong/ts-loader)
 
 ### PostCSS
 
@@ -116,3 +125,6 @@ The command **npm test** is executed from the terminal to launch Karma. Karma re
 
 ### Webpack
 
+- [Webpack Configuration](https://webpack.github.io/docs/configuration.html)
+- [Webpack Loaders](https://webpack.github.io/docs/using-loaders.html)
+- [HTML Webpack Plugin](https://github.com/ampedandwired/html-webpack-plugin)
