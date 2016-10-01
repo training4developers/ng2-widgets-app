@@ -14,21 +14,21 @@ The following configuration information pertains to the configuration of the app
 
 ### Process Flow
 
-Run **npm start** from a terminal, the web server configuration is loaded from **package.json**, and the Express-based web server is started. Based upon the default configuration, the web site can be loaded from http://localhost:3000, and the widgets REST service is available via http://localhost:3000/api/widgets.
+Run **npm start** from a terminal, the web server configuration is loaded from **config/bs-config.js**, and the BrowserSync-based web server is started. Based upon the default configuration, the web site can be loaded from http://localhost:3000, and the widgets REST service provided by **json-server** is available via http://localhost:3010/widgets.
 
 #### Widgets REST Endponts
 
 __Resource Collection URI__
 
-- GET /api/widgets -> returns a JSON formatted array of widget objects
-- POST /api/widgets -> the request body should contain a JSON formatted widget object,
+- GET http://localhost:3010/widgets -> returns a JSON formatted array of widget objects
+- POST http://localhost:3010/widgets -> the request body should contain a JSON formatted widget object,
 returns a JSON formatted widget object with the id, created and modified fields updated
 
 __Resource Element URI__
 
-- GET /api/widgets/<widget id> -> a JSON formatted widget object
-- PUT /api/widgets/<widget id> -> the request body should contain a JSON formatted widget object, returns a JSON formatted widget objects with the modified field updated
-- DELETE /api/widgets/<widget id> -> returns a JSON formatted widget object of the widget deleted
+- GET http://localhost:3010/widgets/<widget id> -> a JSON formatted widget object
+- PUT http://localhost:3010/widgets/<widget id> -> the request body should contain a JSON formatted widget object, returns a JSON formatted widget objects with the modified field updated
+- DELETE http://localhost:3010/widgets/<widget id> -> returns a JSON formatted widget object of the widget deleted
 
 ## Development Configuration
 
@@ -46,12 +46,13 @@ The following configuration information pertains to the development of the appli
 - **/config/helpers.js** - Used to resolve folder paths for the Webpack configuration files.
 - **/config/webpack.common.js** - Common Webpack settings which can be imported into various environment specific Webpack configuration files.
 - **/config/webpack.dev.js** - Webpack configuration for development.
+- **/config/bs-config.js** - BrowserSync configuration for development.
 
 There is no production, staging or other environment configuration file for Webpack at the moment (except for testing but it does not use the common Webpack configuration file).  Examples of production file can be found at Angular.io.
 
 ### Process Flow
 
-To develop the application, the project is opened in an editor such as Visual Studio Code or Atom. From a terminal, the command **npm run webpack** is executed. Webpack fires up and produces an output of the web application to the **dist/www** folder which is then available to the web server for deliver to a web browser. Webpack then enters watch mode, and watches for changes to the files, so that new bundles can be produced when file changes are saved. The advantage to this approach is that each developer can use the editor of their choice even if its not TypeScript friendly. Webpack runs by running the many application files through a pre-processor called a loader to ultimately produce ES5 JavaScript CommonJS modules which are then bundled together.
+To develop the application, the project is opened in an editor such as Visual Studio Code or Atom. From a terminal, run the command **npm start** is executed. As part of the stating the application, Webpack fires up and produces an output of the web application to the **dist** folder which is then available to the web server for deliver to a web browser. Webpack then enters watch mode, and watches for changes to the files, so that new bundles can be produced when file changes are saved. The advantage to this approach is that each developer can use the editor of their choice even if its not TypeScript friendly. Webpack runs by running the many application files through a pre-processor called a loader to ultimately produce ES5 JavaScript CommonJS modules which are then bundled together.
 
 TypeScript files (ending in .ts) are processed by the TypeScript loader to produce ES5 compliant JavaScript code. HTML files are processed by the HTML loader. SASS files are processed by the SASS loader to produce CSS.  All of the HTML, CSS, and JavaScript are all combined into JavaScript bundle files.
 
