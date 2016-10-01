@@ -74,7 +74,7 @@ To view the HTML version of the code coverage report, open the **index.html** in
 
 From a terminal, in the root project folder (where the **package.json** file exists), the following commands can be executed to perform various project development tasks.
 
-- **npm start** - removes the dist folder, builds and deploys the server app, and starts the web app and the rest app
+- **npm start** - removes the dist folder, builds and deploys the web app, and starts the web app and the rest app
 - **npm test** - starts karma to run unit tests
 - **npm run clean** - removes the **dist** folder
 - **npm run typings** - installs TypeScript type definitions as specified in the **typings.json** file
