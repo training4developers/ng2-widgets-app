@@ -31,6 +31,7 @@ module.exports = function (config) {
     // coverage runs first, then web pack, then the source map generation
     preprocessors: {
       './karma-test-shim.js': [ 'coverage', 'webpack', 'sourcemap' ]
+      //'./karma-test-shim.js': [ 'webpack', 'sourcemap' ]
     },
 
     // specifies the webpack configuration file for use by the webpack preprocessor above
@@ -58,6 +59,7 @@ module.exports = function (config) {
       ]
     },
 
+
     // maximum start time for the web browser before trying to capture it
 		captureTimeout: 120000,
 
@@ -83,14 +85,17 @@ module.exports = function (config) {
     // // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
 		customLaunchers: customLaunchers,
 
+
 		// assign the configured browsers from custom launchers
     browsers: Object.keys(customLaunchers),
+
 
 		// configuration for PhantomJS browser
     phantomjsLauncher: {
 			// Have phantomjs exit if a ResourceError is encountered (useful if karma exits without killing phantom)
 			exitOnResourceError: true
 		},
+
 
     // Continuous Integration mode
     // if true, Karma captures browsers, runs the tests and exits

@@ -7,17 +7,18 @@
 		"moduleResolution": "node",
 		"emitDecoratorMetadata": true,
 		"experimentalDecorators": true,
-		"noImplicitAny": false,
+		"noImplicitAny": true,
 		"removeComments": false,
 		"noEmitHelpers": false,
 		"sourceMap": true,
-		"inlineSourceMap": false
+		"inlineSourceMap": false,
+		"suppressImplicitAnyIndexErrors": true
 	},
 	"exclude": [
 		"node_modules"
 	],
 	"filesGlob": [
-		"./src/www/js/**/*.ts",
+		"./src/js/**/*.ts",
 		"./typings/index.d.ts",
 		"!./node_modules/**",
 		"!./config/**"

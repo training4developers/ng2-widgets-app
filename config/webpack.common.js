@@ -11,9 +11,9 @@ module.exports = {
 
   // entry points for the three bundles, order does not matter
   entry: {
-    'vendor': './src/www/js/vendor.ts',
-    'polyfills': './src/www/js/polyfills.ts',
-    'app': './src/www/js/main.ts'
+    'vendor': './src/js/vendor.ts',
+    'polyfills': './src/js/polyfills.ts',
+    'app': './src/js/main.ts'
   },
 
   // allows us to require modules using
@@ -24,7 +24,7 @@ module.exports = {
   // root is an absolute path to the folder containing our application modules
   resolve: {
     extensions: ['', '.ts', '.js', '.json'], // order matters, resolves left to right
-		root: helpers.root('src','www','js')
+		root: helpers.root('src','js')
   },
 
   module: {
@@ -51,7 +51,7 @@ module.exports = {
       // useful for bundling HTML with Angular Component
       {
         test: /\.html$/,
-        exclude: [ helpers.root('src','www','index.html') ],
+        exclude: [ helpers.root('src','index.html') ],
         loader: 'html'
       },
       // outputs images and font files to a common assets folder
@@ -63,13 +63,13 @@ module.exports = {
       // transpiles global SASS stylesheets
 			{
 			  test: /\.scss$/,
-        exclude: [ helpers.root('src','www','js') ],
+        exclude: [ helpers.root('src','js') ],
 			  loaders: ['style','css','postcss','sass'] // loader order is executed right to left
 			},
       // transpiles component SASS stylesheets
 			{
 			  test: /\.scss$/,
-        exclude: [ helpers.root('src','www','css') ],
+        exclude: [ helpers.root('src','css') ],
 			  loaders: ['raw','postcss','sass'] // loader order is executed right to left
 			}
     ]
@@ -112,7 +112,7 @@ module.exports = {
     // this is almost always the main html for the initial loading of 
     // the site
     new HtmlWebpackPlugin({
-      template: './src/www/index.html'
+      template: './src/index.html'
     })
   ]
 

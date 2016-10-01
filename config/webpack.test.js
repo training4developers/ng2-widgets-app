@@ -17,7 +17,7 @@ module.exports = {
   // root is an absolute path to the folder containing our application modules
   resolve: {
     extensions: ['', '.ts', '.js', '.json'],  // order matters, resolves left to right
-		root: helpers.root('src','www','js')
+		root: helpers.root('src','js')
   },
 
   module: {
@@ -38,8 +38,9 @@ module.exports = {
 
 		// processes the files through istanbul to add code coverage
 		postLoaders: [{
-      test: /\.(js|ts)$/, loader: 'istanbul-instrumenter-loader',
-      include: helpers.root('src', 'www', 'js'),
+      test: /\.(js|ts)$/,
+      loader: 'istanbul-instrumenter-loader',
+      include: helpers.root('src', 'js'),
       exclude: [ /\.(e2e|spec)\.ts$/, /node_modules/ ]
     }]
 
