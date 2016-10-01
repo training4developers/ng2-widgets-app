@@ -4,11 +4,11 @@
         "**/.git": true,
         "**/.svn": true,
         "**/.DS_Store": true,
-        "node_modules/": false,
-        "dist/": false,
-        "reports/": false,
+        "node_modules/": true,
+        "dist/": true,
+        "reports/": true,
         ".vscode/": true,
-        "typings/": false
+        "typings/": true
     },
      "editor.tabSize": 2,
      "editor.insertSpaces": false,
