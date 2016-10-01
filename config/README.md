@@ -26,9 +26,11 @@ returns a JSON formatted widget object with the id, created and modified fields 
 
 __Resource Element URI__
 
-- GET http://localhost:3010/widgets/<widget id> -> a JSON formatted widget object
-- PUT http://localhost:3010/widgets/<widget id> -> the request body should contain a JSON formatted widget object, returns a JSON formatted widget objects with the modified field updated
-- DELETE http://localhost:3010/widgets/<widget id> -> returns a JSON formatted widget object of the widget deleted
+- GET http://localhost:3010/widgets/:widgetId -> a JSON formatted widget object
+- PUT http://localhost:3010/widgets/:widgetId -> the request body should contain a JSON formatted widget object, returns a JSON formatted widget objects with the modified field updated
+- DELETE http://localhost:3010/widgets/:widgetId -> returns a JSON formatted widget object of the widget deleted
+
+Replace ":widgetId" with the actual widget id.
 
 ## Development Configuration
 
