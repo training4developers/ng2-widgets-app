@@ -25,9 +25,17 @@ It could take a few minutes for this command to complete. If you have connection
 This set has been completed successfully when you receive the following message:
 
 ```bash
-web server running on port 3000
-please do not close this terminal window
-please use a new terminal window to run additional commands
+Hash: 9c2fcd4942f7122f9a69
+[0] Version: webpack 1.13.2
+[0] Time: 11132ms
+[0]        Asset       Size  Chunks             Chunk Names
+[0]       app.js    85.9 kB       0  [emitted]  app
+[0] polyfills.js     745 kB       1  [emitted]  polyfills
+[0]    vendor.js    7.15 MB       2  [emitted]  vendor
+[0]   index.html  507 bytes          [emitted]  
+[0]     + 657 hidden modules
+[0] Child html-webpack-plugin for "index.html":
+[0]         + 3 hidden modules
 ```
 
 This terminal window is now running the web server, a second terminal window will need to be opened to run additional terminal commands.
@@ -36,15 +44,7 @@ Step 5. Open a web browser, and navigate to [http://localhost:3000](http://local
 
 **To Modify the Web Application**
 
-Step 6. Open a new terminal window (do not use the same terminal window as the web server), change to the project folder.
-
-Step 7. From the terminal, run the following command:
-
-```bash
-$ npm run webpack
-```
-
-Step 8. Open your favorite text editor (such as [Atom](https://atom.io/) or [Visual Studio Code](https://code.visualstudio.com)), and modify the files in the **src/www** folder. When file changes are saved, **webpack** will automatically transpile and bundle the application code and assets, and deploy it to the **dist** folder. To see the changes, reload your web browser.
+Step 6. Open your favorite text editor (such as [Atom](https://atom.io/) or [Visual Studio Code](https://code.visualstudio.com)), and modify the files in the **src** folder. When file changes are saved, **webpack** will automatically transpile and bundle the application code and assets, and deploy it to the **dist** folder. To see the changes, reload your web browser.
 
 Visual Studio Code supports TypeScript out of the box. Atom requires the 	**atom-typescript** package to be installed. To install it from the menu bar, go to Packages -> Settings View -> Install Packages/Themes. Search for **atom-typescript**, then click **Install**. Sometimes Atom will not be able to download the package because of proxy settings. To resolve this run the following commands from a terminal window, replacing the localhost URL with your proxy URL setting:
 
@@ -74,14 +74,14 @@ To view the HTML version of the code coverage report, open the **index.html** in
 
 From a terminal, in the root project folder (where the **package.json** file exists), the following commands can be executed to perform various project development tasks.
 
-- **npm start** - starts the web server
+- **npm start** - removes the dist folder, builds and deploys the server app, and starts the web app and the rest app
 - **npm test** - starts karma to run unit tests
 - **npm run clean** - removes the **dist** folder
 - **npm run typings** - installs TypeScript type definitions as specified in the **typings.json** file
-- **npm run build** - removes the dist folder, builds and deploys the server app, and the web app
-- **npm run webpack** - runs webpack in watch mode so web app file changes are automatically processed, and deployed to the **dist/www** folder
-- **npm run webpack-once** - runs webpack once to process web app files, and deploys them to the **dist/www** folder
-- **npm run server** - builds the server application, and deploys it to the **dist** folder
+- **npm run webpack** - runs webpack in watch mode so web app file changes are automatically processed, and deployed to the **dist** folder
+- **npm run webpack-once** - runs webpack once to process web app files, and deploys them to the **dist** folder
+- **npm run web** - starts the web server
+- **npm run rest** - starts the rest server
 
 To learn more about the Angular 2/WebPack/TypeScript/Karma configuration, click [here](https://github.com/training4developers/ng2-widgets-app/tree/master/config).
 
