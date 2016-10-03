@@ -5,7 +5,7 @@
   "scripts": {
     "postinstall": "npm run typings",
     "typings": "typings install",
-    "start": "npm run clean && concurrently \"npm run webpack\" \"npm run web\" \"npm run rest\"",
+    "start": "npm run clean && npm run webpack-once && concurrently \"npm run webpack\" \"npm run web\" \"npm run rest\"",
     "clean": "rimraf dist",
     "web": "browser-sync start -c ./config/bs-config.js",
     "rest": "json-server --watch --port 3010 db.json",
@@ -33,6 +33,7 @@
     "browser-sync": "^2.17.0",
     "concurrently": "^3.0.0",
     "css-loader": "^0.25.0",
+    "eslint": "^3.7.0",
     "extract-text-webpack-plugin": "^1.0.1",
     "file-loader": "^0.9.0",
     "html-loader": "^0.4.3",
