@@ -16,7 +16,7 @@ import { WidgetFormComponent } from './widgets/shared/widget-form/widget-form.co
 import { CapitalizePipe } from './pipes/capitalize.pipe';
 import { ActivePipe } from './pipes/active.pipe';
 
-import { AppRoutingModule, appRoutingProviders }  from './app.routes';
+import { AppRoutingModule }  from './app.routes';
 
 @NgModule({
   imports: [
@@ -38,9 +38,6 @@ import { AppRoutingModule, appRoutingProviders }  from './app.routes';
     WidgetFormComponent,
     CapitalizePipe,
     ActivePipe
-  ],
-  providers: [
-    appRoutingProviders
   ],
   bootstrap: [ AppComponent ]
 })

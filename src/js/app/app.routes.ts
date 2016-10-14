@@ -9,10 +9,7 @@ const appRoutes: Routes = [
 	{ path: '', component: WidgetsViewerComponent },
 	{ path: 'widget/:id', component: WidgetViewerComponent },
 	{ path: 'widget/:id/edit', component: WidgetEditorComponent }
+	//{ path: '**', component: error404Component }
 ];
 
-export const appRoutingProviders: any[] = [
-
-];
-
-export const AppRoutingModule: ModuleWithProviders = RouterModule.forRoot(appRoutes);
+export const AppRoutingModule: ModuleWithProviders = RouterModule.forRoot(appRoutes, { useHash: true });
