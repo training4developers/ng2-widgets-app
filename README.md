@@ -82,6 +82,8 @@ From a terminal, in the root project folder (where the **package.json** file exi
 - **npm run webpack-once** - runs webpack once to process web app files, and deploys them to the **dist** folder
 - **npm run web** - starts the web server
 - **npm run rest** - starts the rest server
+- **npm run prod-web** - starts the web application in production mode
+- **npm run prod-webpack-once** - runs webpack in production mode once
 
 To learn more about the Angular 2/WebPack/TypeScript/Karma configuration, click [here](https://github.com/training4developers/ng2-widgets-app/tree/master/config).
 
