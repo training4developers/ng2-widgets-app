@@ -7,26 +7,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
   <body>
-    <button>Show Widget 1</button>
-    <a href="#/widget/1">View Widget 1</a>
-
-    <script>
-
-      var fns = [];
-
-      function registerClickFn(fn) {
-        fns.push(fn);
-      }
-
-      document.querySelector("button").addEventListener("click", function() {
-        fns.forEach(function(fn) {
-          fn();
-        });
-      });
-
-    </script>
-
-
     <widgets-app>Loading...</widgets-app>
   </body>
 </html>
