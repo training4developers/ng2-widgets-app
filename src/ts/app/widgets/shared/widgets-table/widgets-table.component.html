@@ -1,0 +1,26 @@
+<table class="table table-striped">
+
+	<thead>
+		<tr>
+			<th>Name</th>
+			<th>Color</th>
+			<th>Size</th>
+			<th>Quantity</th>
+			<th>Actions</th>
+		</tr>
+	</thead>
+
+	<tbody>
+		<tr *ngFor="let widget of widgets">
+			<td>{{widget.name}}</td>
+			<td>{{widget.color | capitalize}}</td>
+			<td>{{widget.size | capitalize}}</td>
+			<td>{{widget.quantity | number:"1.0-0"}}</td>
+			<td>
+				<button type="button" (click)="viewWidgetButton(widget.id)">View</button>
+				<button type="button" (click)="editWidgetButton(widget.id)">Edit</button>
+			</td>
+		</tr>
+	</tbody>
+
+</table>

@@ -6,11 +6,10 @@
         "**/.DS_Store": true,
         "node_modules/": false,
         "dist/": false,
-        "reports/": false,
-        ".vscode/": true,
-        "typings/": true
+        "reports/": true,
+        ".vscode/": true
     },
-     "editor.tabSize": 2,
-     "editor.insertSpaces": false,
-     "editor.wrappingColumn": 1000
+     "editor.tabSize": 4,
+     "editor.insertSpaces": true,
+     "editor.wrappingColumn": 120
 }

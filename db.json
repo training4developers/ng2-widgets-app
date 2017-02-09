@@ -19,7 +19,7 @@
       "name": "Small Red Widget",
       "description": "A small, red widget.",
       "color": "red",
-      "size": "small",
+      "size": "medium",
       "quantity": 2,
       "ownerId": 1
     },

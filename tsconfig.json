@@ -2,7 +2,7 @@
 	"compileOnSave": false,
 	"buildOnSave": false,
 	"compilerOptions": {
-		"target": "es5",
+		"target": "es6",
 		"module": "commonjs",
 		"moduleResolution": "node",
 		"emitDecoratorMetadata": true,
@@ -14,20 +14,12 @@
 		"inlineSourceMap": false,
 		"suppressImplicitAnyIndexErrors": true
 	},
-	"exclude": [
-		"node_modules"
-	],
-	"filesGlob": [
-		"./src/js/**/*.ts",
-		"./typings/index.d.ts",
-		"!./node_modules/**",
-		"!./config/**"
-	],
-	"awesomeTypescriptLoaderOptions": {
-		"forkChecker": true,
-		"useWebpackText": true
-	},
-	"atom": {
-		"rewriteTsconfig": false
-	}
+	"include": [
+        "src/ts/**/*.ts",
+        "src/ts/**/*.tsx"
+    ],
+    "exclude": [
+        "config",
+        "**/*.spec.ts"
+    ]    
 }

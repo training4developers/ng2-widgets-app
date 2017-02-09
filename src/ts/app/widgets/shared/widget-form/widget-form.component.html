@@ -1,0 +1,55 @@
+<form novalidate>
+
+	<div>
+		<label>
+			Name:
+			<input type="text" [(ngModel)]="widget.name" name="widgetName" required #widgetName="ngModel">
+		</label>
+		<span *ngIf="!widgetName.valid && (widgetName.touched || !!widgetName.id)">
+			Please enter a widget name.
+		</span>
+	</div>
+
+	<div>
+		<label>Description: <textarea [(ngModel)]="widget.description" name="widgetDescription"></textarea></label>
+	</div>
+
+	<div>
+		<label>Color: <select [(ngModel)]="widget.color" name="widgetColor" required #widgetColor="ngModel">
+			<option value="">Select One...</option>
+			<option *ngFor="let color of colors" [value]="color.value">{{color.label}}</option>
+		</select></label>
+		<span *ngIf="!widgetColor.valid && (widgetColor.touched || !!widgetColor.id)">
+			Please enter a widget color.
+		</span>
+	</div>
+
+	<div>
+		<label>Size: <select [(ngModel)]="widget.size" name="widgetSize" required #widgetSize="ngModel">
+			<option value="">Select One...</option>
+			<option *ngFor="let size of sizes" [value]="size.value">{{size.label}}</option>
+		</select></label>
+		<span *ngIf="!widgetSize.valid && (widgetSize.touched || !!widgetSize.id)">
+			Please enter a widget size.
+		</span>
+	</div>
+
+	<div>
+		<label>
+			Quantity:
+			<input type="number" [(ngModel)]="widget.quantity" name="widgetQuantity" required #widgetQuantity="ngModel">
+		</label>
+		<span *ngIf="!widgetQuantity.valid && (widgetQuantity.touched || !!widgetQuantity.id)">
+			Please enter a widget quantity.
+		</span>
+	</div>
+
+	<div>
+		<label>Active: <input type="checkbox" [(ngModel)]="widget.active" name="widgetActive"></label>
+	</div>
+
+	<button type="button" (click)="saveWidgetButton(widget)">Save</button>
+	<button type="button" (click)="cancelWidgetButton(widget)">Cancel</button>
+	<button type="button" (click)="deleteWidgetButton(widget)" *ngIf="!!widget.id">Delete</button>
+
+</form>

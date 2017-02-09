@@ -1,0 +1,26 @@
+<div>
+	<div>
+		Name: {{widget?.name}}
+	</div>
+	<div>
+		Description: {{widget?.description}}
+	</div>
+	<div>
+		Color: {{widget?.color | capitalize}}
+	</div>
+	<div>
+		Size: {{widget?.size | capitalize}}
+	</div>
+	<div>
+		Quantity: {{widget?.quantity | number:"1.0-0"}}
+	</div>
+	<div>
+		Active: {{widget?.active | active}}
+	</div>
+	<div>
+		Created: {{widget?.created | date:"short"}}
+	</div>
+	<div>
+		Modified: {{widget?.modified | date:"short"}}
+	</div>
+</div>
