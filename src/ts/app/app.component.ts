@@ -5,7 +5,7 @@ import { App } from "./models/app";
 @Component({
   selector: "widget-tool",
   template: require("./app.component.html"),
-  styles: [require("./app.component.scss")]
+  styles: [require("./app.component.scss")],
 })
 export class AppComponent implements OnInit {
 
