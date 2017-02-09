@@ -42,14 +42,32 @@ Step 5. Open a web browser, and navigate to [http://localhost:5000](http://local
 
 Step 6. Open your favorite text editor (such as [Atom](https://atom.io/) or [Visual Studio Code](https://code.visualstudio.com)), and modify the files in the **src** folder. When file changes are saved, **webpack** will automatically transpile and bundle the application code and assets, and deploy it to the **dist** folder. To see the changes, reload your web browser.
 
-Visual Studio Code supports TypeScript out of the box. Atom requires the **atom-typescript** package to be installed. To install it from the menu bar, go to Packages -> Settings View -> Install Packages/Themes. Search for **atom-typescript**, then click **Install**. Sometimes Atom will not be able to download the package because of proxy settings. To resolve this run the following commands from a terminal window, replacing the localhost URL with your proxy URL setting:
+The solution is preconfigured for IntelliJ IDEA and Webstorm for ESLint and TSLint. Also, automatic transpilation for TypeScript and SASS has been disabled. All transpilation should be performed via Webpack from the command line.
+
+Visual Studio Code supports TypeScript out of the box, but several additional extensions will greatly enhance the development experience. Install the following extensions:
+
+- ESLint: dbaeumer.vscode-eslint
+- HTMLHint: mkaufman.HTMLHint
+- MarkDown Lint: DavidAnson.vscode-markdownlint
+- Sass Lint: glen-84.sass-lint
+- TSLint: eg2.tslint
+
+Atom does not support TypeScript out of the box. Please install the following packages to enhance the development experience. To install an extension from the menu bar, go to Packages -> Settings View -> Install Packages/Themes. Search for the following packages individually, and install them.
+
+- atom-typescript
+- linter
+- linter-eslint
+- linter-htmlhint
+- linter-sass-lint
+- linter-tslint
+- platformio-ide-terminal
 
 ```bash
-$ apm config set proxy "http://localhost:8080"
+apm config set proxy "http://localhost:8080"
 
-$ apm config set https_proxy "http://localhost:8080"
+apm config set https_proxy "http://localhost:8080"
 
-$ apm config set strict-ssl false
+apm config set strict-ssl false
 ```
 
 Restart Atom, then re-attempt to install the **atom-typescript** package again.
