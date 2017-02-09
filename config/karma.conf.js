@@ -5,9 +5,9 @@
 // load the browser configurations for executing the unit tests
 const customLaunchers = require('./custom-launchers');
 
-module.exports = function (config) {
+module.exports = config => {
 
-    var _config = {
+    const _config = {
 
         // base path that will be used to resolve all patterns (eg. files, exclude)
         basePath: '',
