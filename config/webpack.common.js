@@ -146,6 +146,7 @@ module.exports = {
             template: path.join(srcFolderPath, 'index.html')
         }),
 
+        // fixes warnings when transpiling Angular 2 code
         new webpack.ContextReplacementPlugin(
             /angular(\\|\/)core(\\|\/)(esm(\\|\/)src|src)(\\|\/)linker/,
             __dirname

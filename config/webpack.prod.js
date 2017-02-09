@@ -30,9 +30,11 @@ module.exports = require('webpack-merge')(require('./webpack.common.js'), {
     // UglifyJsPlugin - minimizes JavaScript files, but function names are not discarded
     // DefinePlugin - configures environment variables for enabling production mode
     plugins: [
+        // set minimize option for all loaders
         new webpack.LoaderOptionsPlugin({
             minimize: true
         }),        
+        // minimizes javascript code
         new webpack.optimize.UglifyJsPlugin({
             sourceMap: true,
             compress: {
@@ -42,6 +44,7 @@ module.exports = require('webpack-merge')(require('./webpack.common.js'), {
                 keep_fnames: true,
             },
         }),
+        // define environment variables
         new webpack.DefinePlugin({
             'process.env': {
                 'ENV': JSON.stringify(ENV)

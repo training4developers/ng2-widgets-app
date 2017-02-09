@@ -6,6 +6,7 @@ const webpack = require('webpack');
 // load the web server settings from package.json
 const devServerConfig = require('../package.json').devServer;
 
+// configure the environment object for development mode
 const ENV = process.env.ENV = process.env.NODE_ENV = 'development';
 
 // merge the common configuration with the environment specific configuration
@@ -24,6 +25,7 @@ module.exports = require('webpack-merge')(require('./webpack.common.js'), {
     },
 
     plugins: [
+        // define environment variables
         new webpack.DefinePlugin({
             'process.env': {
                 'ENV': JSON.stringify(ENV)

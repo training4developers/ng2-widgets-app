@@ -9,12 +9,10 @@ The following configuration information pertains to the configuration of the app
 ### Configuration Files
 
 - **/package.json** - Contains information about the project, including application and development dependencies. The command line scripts are defined here. The web server configuration is located at the end of the file. To change protocol, port number, domain and root folder, please edit these values in this file.
-- **/config.js** - Contains code to extract web server configuration from the package.json file.
-- **/index.js** - Used to start the web server. It loads the web server config from package.json, then passes the config to /src/server.ts to fire up the REST server.
 
 ### Process Flow
 
-Run **npm start** from a terminal, the web server configuration is loaded from **config/bs-config.js**, and the BrowserSync-based web server is started. Based upon the default configuration, the web site can be loaded from http://localhost:3000, and the widgets REST service provided by **json-server** is available via http://localhost:3010/widgets.
+Run **npm start** from a terminal, the web server configuration is loaded from **/package.json**, and the Webpack Development web server is started. Based upon the default configuration, the web site can be loaded from http://localhost:5000, and the widgets REST service provided by **json-server** is available via http://localhost:3010/widgets.
 
 #### Widgets REST Endponts
 
@@ -42,15 +40,12 @@ The following configuration information pertains to the development of the appli
 - **/.bootstraprc** - Indicates the Bootstrap CSS library configuration for the Typescript bootstrap loader used by **/src/vendor.ts** and outputed with the Webpack vendor bundle. Only the CSS portions of Bootstrap are loaded, not the JavaScript components. Therefore, jQuery is not included. 
 - **/.htmlhintrc** - Configuration file for HTML linting for the Atom editor. May work with other editors.
 - **/.npmrc** - Used to configure **npm** for the project. Typically, used to configure proxy servers.
-- **/.typingsrc** - Used to configure **typings** for the project. Typically, used to configure proxy servers.
 - **/tsconfig.json** - Used to configure the TypeScript compiler for the command line tool, WebPack, and the Visual Studio Code and Atom editors. Compile on save and build are disabled because Webpack does the compilation for the project through the TypeScript loader. Also, the file is configured to prevent Atom's TypeScript package from modifying the file.
-- **/typings.json** - Used to specify the TypeScript type definition dependencies of the project.
-- **/config/helpers.js** - Used to resolve folder paths for the Webpack configuration files.
 - **/config/webpack.common.js** - Common Webpack settings which can be imported into various environment specific Webpack configuration files.
 - **/config/webpack.dev.js** - Webpack configuration for development.
-- **/config/bs-config.js** - BrowserSync configuration for development.
+- **/config/webpack.prod.js** - Webpack configuration for production.
 
-There is no production, staging or other environment configuration file for Webpack at the moment (except for testing but it does not use the common Webpack configuration file).  Examples of production file can be found at Angular.io.
+There is no staging or other environment configuration file for Webpack at the moment (except for testing but it does not use the common Webpack configuration file).
 
 ### Process Flow
 

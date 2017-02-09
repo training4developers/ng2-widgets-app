@@ -8,11 +8,10 @@ const srcFolderPath = path.join(__dirname, '..', srcFolder);
 const tsFolderPath = path.join(__dirname, '..', srcFolder, 'ts');
 const nodeModulesFolderPath = path.join(__dirname, '..', 'node_modules');
 
+// configure the environment object for test mode
 const ENV = process.env.ENV = process.env.NODE_ENV = 'test';
 
 module.exports = {
-
-    context: tsFolderPath,
 
     // allows us to require modules using
     // import { someExport } from './my-module';
@@ -26,16 +25,12 @@ module.exports = {
     },        
 
     module: {
-
         rules: [
-
             // transpile TypeScript to JavaScript
             {
                 test: /\.tsx?$/,
                 use: 'ts-loader'
             },
-
-
             // package HTML as JavaScript modules
             {
                 test: /\.html$/,
@@ -62,7 +57,7 @@ module.exports = {
                     'sass-loader'
                 ]
             },
-
+            // processes the files through istanbul to add code coverage
             {
                 enforce: 'post',
                 test: /\.(js|tsx?)$/,
@@ -82,11 +77,13 @@ module.exports = {
     devtool: 'inline-source-map',
 
     plugins: [
+        // define environment variables
         new webpack.DefinePlugin({
             'process.env': {
                 'ENV': JSON.stringify(ENV)
             }
         }),
+        // fixes warnings when transpiling Angular 2 code
         new webpack.ContextReplacementPlugin(
             /angular(\\|\/)core(\\|\/)(esm(\\|\/)src|src)(\\|\/)linker/,
             __dirname

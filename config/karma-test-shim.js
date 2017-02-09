@@ -19,14 +19,14 @@ require('zone.js/dist/fake-async-test');
 // RxJS
 require('rxjs/Rx');
 
-// specifies the location of the applicaiton files, and the pattern for the unit testing files
-const appContext = require.context('../src/ts', true, /\.spec\.tsx?/);
+// specifies the location of the application files, and the pattern for the unit testing files
+var appContext = require.context('../src/ts', true, /\.spec\.tsx?/);
 
 appContext.keys().forEach(appContext);
 
 // loads the providers need for performing Angular 2 unit testing
-const coreTesting = require('@angular/core/testing');
-const browserTesting = require('@angular/platform-browser-dynamic/testing');
+var coreTesting = require('@angular/core/testing');
+var browserTesting = require('@angular/platform-browser-dynamic/testing');
 
 // may only be called once, providers in the actual unit tests should be loaded
 // using addProvider in the unit test files
