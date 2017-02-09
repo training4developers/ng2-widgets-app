@@ -10,6 +10,6 @@ import "@angular/forms";
 // RxJS
 import "rxjs";
 
-// Other vendors for example jQuery, Lodash or Bootstrap
+// other vendors such as moment.js or lodash
 // You can import js, ts, css, sass, ...
 import "bootstrap-loader";

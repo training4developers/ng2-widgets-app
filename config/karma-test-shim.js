@@ -20,7 +20,7 @@ require('zone.js/dist/fake-async-test');
 require('rxjs/Rx');
 
 // specifies the location of the applicaiton files, and the pattern for the unit testing files
-var appContext = require.context('../src/js', true, /\.spec\.ts/);
+var appContext = require.context('../src/ts', true, /\.spec\.tsx?/);
 
 appContext.keys().forEach(appContext);
 

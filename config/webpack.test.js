@@ -1,26 +1,45 @@
 'use strict';
 
 const path = require('path');
+const webpack = require('webpack');
+
+const srcFolder = 'src';
+const srcFolderPath = path.join(__dirname, '..', srcFolder);
+const tsFolderPath = path.join(__dirname, '..', srcFolder, 'ts');
+const nodeModulesFolderPath = path.join(__dirname, '..', 'node_modules');
+
+const ENV = process.env.ENV = process.env.NODE_ENV = 'test';
 
 module.exports = {
 
-    // outputs source map for error reporting
-    // when unit tests fail, karma will display the TypeScript line number instead
-    // of the JavaScript bundle line number
-    devtool: 'inline-source-map',
+    context: tsFolderPath,
+
+    // allows us to require modules using
+    // import { someExport } from './my-module';
+    // instead of
+    // import { someExport } from './my-module.ts';
+    // with the extensions in the list, it can be omitted from the import
+    // root is an absolute path to the folder containing our application modules
+    resolve: {
+        extensions: [ '.ts', '.tsx', '.js', '.json' ], // order matters, resolves left to right
+        modules: [ tsFolderPath, nodeModulesFolderPath ]
+    },        
 
     module: {
 
-        loaders: [
+        rules: [
+
             // transpile TypeScript to JavaScript
             {
                 test: /\.tsx?$/,
-                loader: 'ts'
+                use: 'ts-loader'
             },
+
+
             // package HTML as JavaScript modules
             {
                 test: /\.html$/,
-                loader: 'html'
+                use: 'html-loader'
             },
             // package SASS files as JavaScript modules
             // this is needed otherwise Angular 2 complains that styleUrls is not a stylesheet
@@ -28,17 +47,50 @@ module.exports = {
             // unlike the webpack dev config, we do not need to account for the global stylesheet
             {
                 test: /\.scss$/,
-                loaders: ['raw', 'postcss', 'sass']
-            }
+                use: [
+                    'raw-loader',
+                    {
+                        loader: 'postcss-loader',
+                        // configuration for the postcss loader which modifies CSS after
+                        // processing
+                        options: {
+                            // autoprefixer plugin for postcss adds vendor specific prefixing for
+                            // non-standard or experimental css properties
+                            plugins: [ require('autoprefixer') ]
+                        }
+                    },
+                    'sass-loader'
+                ]
+            },
+
+            {
+                enforce: 'post',
+                test: /\.(js|tsx?)$/,
+                loader: 'istanbul-instrumenter-loader',
+                include: srcFolderPath,
+                exclude: [
+                    /\.(e2e|spec)\.ts$/,
+                    /node_modules/
+                ]
+            }            
         ],
     },
 
-    // processes the files through istanbul to add code coverage
-    postLoaders: [{
-        test: /\.(js|ts)$/,
-        loader: 'istanbul-instrumenter-loader',
-        include: path.join(__dirname, 'src', 'ts'),
-        exclude: [/\.(e2e|spec)\.ts$/, /node_modules/]
-    }],
+    // outputs source map for error reporting
+    // when unit tests fail, karma will display the TypeScript line number instead
+    // of the JavaScript bundle line number
+    devtool: 'inline-source-map',
+
+    plugins: [
+        new webpack.DefinePlugin({
+            'process.env': {
+                'ENV': JSON.stringify(ENV)
+            }
+        }),
+        new webpack.ContextReplacementPlugin(
+            /angular(\\|\/)core(\\|\/)(esm(\\|\/)src|src)(\\|\/)linker/,
+            __dirname
+        ),        
+    ],
 
 };

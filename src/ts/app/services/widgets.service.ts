@@ -9,7 +9,7 @@ import { Widget } from "../models/widget";
 @Injectable()
 export class Widgets {
 
-    private baseUrl: string = "http://localhost:3010/widgets/";
+    private baseUrl: string = "http://localhost:3010/widgets";
 
     private requestOptions: RequestOptions = new RequestOptions({
         headers: new Headers({ "Content-Type": "application/json" })

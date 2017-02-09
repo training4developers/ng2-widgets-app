@@ -1,9 +1,12 @@
 'use strict';
 
 const path = require('path');
+const webpack = require('webpack');
 
 // load the web server settings from package.json
 const devServerConfig = require('../package.json').devServer;
+
+const ENV = process.env.ENV = process.env.NODE_ENV = 'development';
 
 // merge the common configuration with the environment specific configuration
 module.exports = require('webpack-merge')(require('./webpack.common.js'), {
@@ -18,6 +21,14 @@ module.exports = require('webpack-merge')(require('./webpack.common.js'), {
         path: path.join(__dirname, '..', devServerConfig.contentBase),
         publicPath: '/',
         filename: '[name].js'
-    }
+    },
+
+    plugins: [
+        new webpack.DefinePlugin({
+            'process.env': {
+                'ENV': JSON.stringify(ENV)
+            }
+        })        
+    ]
 
 });

@@ -52,16 +52,10 @@ module.exports = function (config) {
         // output can be used by Jenkins or viewed in a web browser per the instructions in the project readme
         coverageReporter: {
             dir: '../reports/coverage',
-            reporters: [{
-                    type: 'text-summary'
-                },
-                {
-                    type: 'json'
-                },
-                {
-                    type: 'html'
-                }
-            ]
+            reporters: [
+                { type: 'text-summary' },
+                { type: 'json' },
+                { type: 'html' }]
         },
 
 

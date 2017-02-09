@@ -22,26 +22,25 @@ module.exports = require('webpack-merge')(require('./webpack.common.js'), {
     // filename is the name of the files, where [name] is the name of each entry point, the [hash] is
     // the unique value for cache busting
     output: {
-        path: path.join(__dirname, devServerConfig.contentBase),
+        path: path.join(__dirname, '..', devServerConfig.contentBase),
         publicPath: '/',
         filename: '[name].[hash].js'
     },
 
-    // HTML minification breaks Angular 2's HTML parser
-    htmlLoader: {
-        minimize: false
-    },
-
-    // NoErrorsPlugin - does not emit assets which compile with errors
-    // DedupePlugin - eliminates duplicate files
     // UglifyJsPlugin - minimizes JavaScript files, but function names are not discarded
     // DefinePlugin - configures environment variables for enabling production mode
     plugins: [
-        new webpack.NoErrorsPlugin(),
+        new webpack.LoaderOptionsPlugin({
+            minimize: true
+        }),        
         new webpack.optimize.UglifyJsPlugin({
+            sourceMap: true,
+            compress: {
+                warnings: false,
+            },
             mangle: {
-                keep_fnames: true
-            }
+                keep_fnames: true,
+            },
         }),
         new webpack.DefinePlugin({
             'process.env': {

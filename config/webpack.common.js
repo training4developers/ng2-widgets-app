@@ -57,7 +57,14 @@ module.exports = {
             {
                 test: /\.html$/,
                 exclude: [path.join(__dirname, '..', srcFolder, 'index.html')],
-                use: 'html-loader'
+                use: [
+                    {
+                        loader: 'html-loader',
+                        options: {
+                            minimize: false
+                        }
+                    }
+                ]
             },
             // transpiles global SASS stylesheets
             {
