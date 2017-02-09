@@ -1,9 +1,10 @@
 {
   "name": "ng2-widgets-app",
-  "version": "1.1.0",
-  "description": "Demonstration web application using Angular 2.0.1",
+  "version": "1.2.0",
+  "description": "Demonstration web application using Angular 2",
   "scripts": {
     "start": "npm run prod",
+    "test": "karma start ./config/karma.conf.js",
     "clean": "rimraf dist",
     "dev": "npm run clean && concurrently \"npm run web-dev\" \"npm run rest\"",
     "prod": "npm run clean && concurrently \"npm run web-prod\" \"npm run rest\"",
@@ -14,7 +15,6 @@
     "webpack-dev": "webpack --config ./config/webpack.dev.js",
     "webpack-prod": "webpack --config ./config/webpack.prod.js",
     "webpack-test": "webpack --config ./config/webpack.test.js",
-    "test": "karma start ./config/karma.conf.js",
     "tdd": "npm test -- --auto-watch --no-single-run"
   },
   "repository": {
